@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "290846899930",
+    "project_id": "project-game-c3986",
+    "storage_bucket": "project-game-c3986.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290846899930:android:a1fb02e64c03fcf889efe3",
+        "android_client_info": {
+          "package_name": "com.example.appproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC96Jatys9Ti9CS_P1o7QSAGM_hCbDmCL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

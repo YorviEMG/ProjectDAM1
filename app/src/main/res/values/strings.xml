@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">appProject</string>
+    <string name="log_det">BIEVENIDO A NUESTRO PORTAL DE VIDEOJUEGOS</string>
+    <string name="log_name">GAME-ARENA</string>
+    <string name="label_login_usu">Ingresar usario</string>
+    <string name="label_login_cla">Ingresar contraseña</string>
+    <string name="label_reg_usu">Ingresar nuevo usario</string>
+    <string name="label_reg_cla">Ingresar contraseña</string>
+    <string name="label_reg_cla2">Repetir contraseña</string>
+    <string name="label_reg_email">Ingresar correo</string>
+    <string name="label_reg">¿Eres un nuevo usuario?</string>
+    <string name="label_card1">Registrar nuevo torneo</string>
+    <string name="label_card2">Inscripción a torneo</string>
+    <string name="label_card3">Torneos Disponibles</string>
+    <string name="label_card4">Mis Torneos</string>
+
+    <string name="facebook_app_id">2192406544452885</string>
+    <string name="fb_login_protocol_scheme">fb2192406544452885</string>
+    <string name="facebook_client_token">a04da28fea29bf150a96ff511b9f1ada</string>
+
+
+
 </resources>
