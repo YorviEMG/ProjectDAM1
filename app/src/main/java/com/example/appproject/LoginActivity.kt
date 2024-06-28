@@ -114,7 +114,8 @@ class LoginActivity : AppCompatActivity(){
                     var intent = Intent(this, MainActivity::class.java)
                     val usu = Usuario(usuario = user.displayName.toString(),
                                      correo = user.email.toString(),
-                                    nombre = user.providerId.toString())
+                                    nombre = user.providerId.toString(),
+                                    rol = "user")
                     database.getReference().child("users").child(user.uid).setValue(usu)
                     intent.putExtra("name", user.displayName.toString())
                     startActivity(intent)
