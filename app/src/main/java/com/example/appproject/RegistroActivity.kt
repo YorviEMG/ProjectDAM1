@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.appproject.controller.LoginController
 import com.google.android.material.textfield.TextInputEditText
 
 private lateinit var txtUsuario: TextInputEditText
@@ -37,8 +39,29 @@ class RegistroActivity: AppCompatActivity() {
     fun registro(){
 
     }
+    fun validar(){
+        val usu = txtUsuario.text.toString()
+        val cro = txtCorreo.text.toString()
+        val cl1 = txtClave.text.toString()
+        val cl2 = txtClave2.text.toString()
+        if (usu.isEmpty() or cro.isEmpty() or cl1.isEmpty() or cl2.isEmpty()) {
+            showAlert("Complete campos faltantes")
+            return
+        }
+        var vUsu = LoginController().findUsuarioByMail(cro)
+        var vCro = LoginController().findUsuarioByUser(usu)
+
+    }
     fun goLogin(){
         var intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+    }
+    fun showAlert(men:String){
+        val builder= AlertDialog.Builder(this)
+        builder.setTitle("Advertencia")
+        builder.setMessage(men)
+        builder.setPositiveButton("Aceptar",null)
+        val dialog: AlertDialog =builder.create()
+        dialog.show()
     }
 }
