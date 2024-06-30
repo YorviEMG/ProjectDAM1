@@ -16,6 +16,7 @@ class LoginController {
         //asignar claves "nombres de los campos de la tabla tb_usuario"
         content.put("nom", bean.nombre)
         content.put("correo", bean.correo)
+        content.put("clave", bean.clave)
         content.put("log", bean.log)
         content.put("rol", bean.rol)
 

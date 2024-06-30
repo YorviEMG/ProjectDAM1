@@ -128,16 +128,16 @@
                             android:layout_marginTop="8dp"
                             android:text="Correo"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/material_dynamic_neutral99" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tvLogProf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:text="Log"
-                            android:textColor="@color/material_dynamic_neutral99" />
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tvRolProf"
@@ -146,7 +146,7 @@
                             android:layout_marginTop="16dp"
                             android:text="Rol"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/material_dynamic_neutral99" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
                 </LinearLayout>

@@ -2,7 +2,11 @@ package com.example.appproject
 
 import android.content.Intent
 import android.os.Bundle
+
 import android.widget.Button
+
+import android.view.View
+
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,13 +16,19 @@ import androidx.core.view.WindowInsetsCompat
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 private lateinit var btnPerfil: ImageButton
 private lateinit var btnLogout: ImageButton
+
 private lateinit var btnNuevo:Button
+
+private lateinit var card5:MaterialCardView
+private lateinit var card6:MaterialCardView
+
 private lateinit var auth: FirebaseAuth
 private lateinit var authGoogle: GoogleSignIn
 private val callbackManager = CallbackManager.Factory.create()
@@ -38,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         auth = Firebase.auth
+        card5 = findViewById(R.id.card5)
+        card6 = findViewById(R.id.card6)
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)
         btnNuevo = findViewById(R.id.btnNuevoInscripcion)
@@ -60,6 +72,10 @@ class MainActivity : AppCompatActivity() {
             correo = info.getString("correo").toString()
             log = info.getString("log").toString()
             rol = info.getString("rol").toString()
+        }
+        if (rol == USER){
+            card5.visibility = View.GONE
+            card6.visibility = View.GONE
         }
     }
     fun goPerfil(){
