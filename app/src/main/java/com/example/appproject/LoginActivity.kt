@@ -44,7 +44,7 @@ val FACEBOOK = "FACEBOOK"
 val CORREO   = "CORREO"
 
 //Roles
-val USER  = "JUGADOR"
+val USER  = "USUARIO"
 val ADMIN = "ADMINISTRADOR"
 
 val OCULTO = "OCULTO"
@@ -111,7 +111,7 @@ class LoginActivity : AppCompatActivity(){
         btnRegistro = findViewById(R.id.btnRegistro)
         btnGoogle   = findViewById(R.id.btnGoogle)
         btnFacebook = findViewById(R.id.btnFacebook)
-        btnLogin.setOnClickListener{ ingresar()}
+        btnLogin.setOnClickListener{ validar()}
         btnRegistro.setOnClickListener{ goRegistro()}
 
         btnGoogle.setOnClickListener{
@@ -156,10 +156,13 @@ class LoginActivity : AppCompatActivity(){
         })*/
 
     }
-    fun ingresar(){
-        var controller: LoginController
+    fun ingresar(usu:Usuario){
 
         var intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("name", usu.nombre)
+        intent.putExtra("correo", usu.correo)
+        intent.putExtra("log", usu.log)
+        intent.putExtra("rol", usu.rol)
         startActivity(intent)
     }
     fun goRegistro(){
@@ -170,14 +173,14 @@ class LoginActivity : AppCompatActivity(){
        var cro = txtUsuario.text.toString()
        var clv = txtClave.text.toString()
 
-        if (cro.isEmpty() or clv.isEmpty()){
+        if (cro.isEmpty() || clv.isEmpty()){
             showAlert("Complete campos obligatorios")
             return
         }
         var usu = LoginController().findUsuario(cro)
         if (usu == null) showAlert("Correo ingresado no existe")
         else{
-            if (usu.clave == clv) ingresar()
+            if (usu.clave == clv) ingresar(usu)
             else {
                 showAlert("Contraseña incorrecta")
                 return

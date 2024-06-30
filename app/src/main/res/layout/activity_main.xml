@@ -103,7 +103,6 @@
                     android:clickable="true"
                     android:focusable="true">
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -137,9 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
-                    android:checkable="true"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:clickable="true">
 
 
                     <LinearLayout
@@ -176,9 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
-                    android:checkable="true"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -212,9 +207,77 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
-                    android:checkable="true"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:clickable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <!-- Media -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="144dp"
+                            android:contentDescription="@string/log_name"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/card4" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <!-- Title, secondary and supporting text -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/label_card1"
+                                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD5-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card5"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <!-- Media -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="144dp"
+                            android:contentDescription="@string/log_name"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/card4" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <!-- Title, secondary and supporting text -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/label_card1"
+                                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD6-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card6"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
