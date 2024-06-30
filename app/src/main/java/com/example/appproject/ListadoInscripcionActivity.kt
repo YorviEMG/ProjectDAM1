@@ -25,9 +25,9 @@ import retrofit2.Response
 class ListadoInscripcionActivity:AppCompatActivity() {
     private lateinit var rvInscripcion:RecyclerView
     private lateinit var btnNuevo:Button
-    //private lateinit var searchView: SearchView
-    //private lateinit var inscripcion: List<Inscripcion>
-    //private lateinit var adapter: InscripcionAdapter
+    private lateinit var searchView: SearchView
+    private lateinit var inscripcion: List<Inscripcion>
+    private lateinit var adapter: InscripcionAdapter
     //
     private lateinit var apiIns:ApiServiceInscripcion
 
@@ -42,22 +42,21 @@ class ListadoInscripcionActivity:AppCompatActivity() {
         }
         rvInscripcion=findViewById(R.id.rbInscripcion)
         btnNuevo=findViewById(R.id.btnNuevaInscripcion)
-        //searchView=findViewById(R.id.searchView)
+        searchView=findViewById(R.id.searchView)
         apiIns=ApiUtils.getAPIServiceInscripcion()
         //
         btnNuevo.setOnClickListener { nuevo() }
         listar()
-
-        /*searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-               filter(newText)
+               adapter.filter(newText)
                 return true
             }
-        })*/
+        })
     }
 
     fun nuevo(){
@@ -69,9 +68,9 @@ class ListadoInscripcionActivity:AppCompatActivity() {
             override fun onResponse(call: Call<List<Inscripcion>>, response: Response<List<Inscripcion>>) {
                //
                 if (response.isSuccessful){
-                    var data= response.body()
-                    var adaptador= InscripcionAdapter(data!!)
-                    rvInscripcion.adapter=adaptador
+                  inscripcion= response.body()!!
+                    adapter= InscripcionAdapter(inscripcion)
+                    rvInscripcion.adapter=adapter
                     rvInscripcion.layoutManager=LinearLayoutManager(AppConfig.CONTEXT)
                 }
             }
@@ -79,15 +78,6 @@ class ListadoInscripcionActivity:AppCompatActivity() {
                 showAlert(t.localizedMessage)
             }
         })
-    }
-    fun filter(text: String?) {
-    /*  val filteredList = inscripcion.filter {
-            (it.nombre?.contains(text ?: "", ignoreCase = true) == true) ||
-                    (it.Categoria?.contains(text ?: "", ignoreCase = true) == true)
-        }
-        adapter = InscripcionAdapter(filteredList)
-        rvInscripcion.adapter = adapter
-        */
     }
 
     fun showAlert(men:String){
