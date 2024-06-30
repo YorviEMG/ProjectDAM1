@@ -1,6 +1,7 @@
 package com.example.appproject.controller
 
 import android.content.ContentValues
+import com.example.appproject.entidad.Inscripcion
 import com.example.appproject.entidad.Usuario
 import com.example.appproject.utils.AppConfig
 

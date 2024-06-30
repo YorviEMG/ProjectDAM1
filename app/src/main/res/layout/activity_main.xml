@@ -154,16 +154,26 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
+                            android:layout_height="67dp"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <!-- Title, secondary and supporting text -->
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/label_card2"
                                 android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                            <Button
+                                android:id="@+id/btnNuevoInscripcion"
+                                android:layout_width="130dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="50dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="INSCRIPCION" />
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
