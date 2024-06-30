@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CÓDIGO"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCodigoJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView132"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NOMBRE"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNombreJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView1322"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PLATAFORMA"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPlataformaJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DESARROLLADOR"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDesarrolladorJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView12233"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="idCATEGORIA"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvIdCategoriaJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

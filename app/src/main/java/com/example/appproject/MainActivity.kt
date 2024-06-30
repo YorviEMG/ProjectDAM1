@@ -8,6 +8,7 @@ import android.widget.Button
 import android.view.View
 
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,8 @@ import com.google.firebase.ktx.Firebase
 private lateinit var btnPerfil: ImageButton
 private lateinit var btnLogout: ImageButton
 
+
+
 private lateinit var btnNuevo:Button
 
 private lateinit var card5:MaterialCardView
@@ -32,12 +35,16 @@ private lateinit var card6:MaterialCardView
 private lateinit var auth: FirebaseAuth
 private lateinit var authGoogle: GoogleSignIn
 private val callbackManager = CallbackManager.Factory.create()
+
 var usuName:String = ""
 var correo:String = ""
 var log:String = ""
 var rol:String = ""
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var txtJugador:TextView
+    private lateinit var txtJuego:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -52,8 +59,15 @@ class MainActivity : AppCompatActivity() {
         card6 = findViewById(R.id.card6)
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)
+
+        txtJugador=findViewById(R.id.txtJugador)
+        txtJuego=findViewById(R.id.txtJuego)
+        txtJuego.setOnClickListener{juego()}
+        txtJugador.setOnClickListener{jugador()}
+
         btnNuevo = findViewById(R.id.btnNuevoInscripcion)
         btnNuevo.setOnClickListener { nuevo() }
+
         btnPerfil.setOnClickListener{ goPerfil() }
         btnLogout.setOnClickListener{
             auth.signOut()
@@ -67,6 +81,16 @@ class MainActivity : AppCompatActivity() {
 
         }
         initial()
+    }
+
+    fun juego(){
+        var intent=Intent(this,ListaJuegoActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun jugador(){
+        var intent=Intent(this,ListaJugadorActivity::class.java)
+        startActivity(intent)
     }
     fun initial(){
         var info = intent.extras

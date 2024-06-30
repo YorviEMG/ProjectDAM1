@@ -3,4 +3,8 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">www.cursomovil.somee.com</domain>
     </domain-config>
+
 </network-security-config>
+
+</network-security-config>
+

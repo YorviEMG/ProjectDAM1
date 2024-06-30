@@ -204,9 +204,10 @@
                             android:padding="16dp">
                             <!-- Title, secondary and supporting text -->
                             <TextView
+                                android:id="@+id/txtJuego"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/label_card1"
+                                android:text="@string/label_cardJuego"
                                 android:textAppearance="?attr/textAppearanceTitleMedium" />
                         </LinearLayout>
                     </LinearLayout>
@@ -238,9 +239,10 @@
                             android:padding="16dp">
                             <!-- Title, secondary and supporting text -->
                             <TextView
+                                android:id="@+id/txtJugador"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/label_card1"
+                                android:text="@string/label_cardJugador"
                                 android:textAppearance="?attr/textAppearanceTitleMedium" />
                         </LinearLayout>
                     </LinearLayout>
