@@ -10,6 +10,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 private lateinit var txtUsu:TextView
+private lateinit var txtCorreo:TextView
+private lateinit var txtLog:TextView
+private lateinit var txtRol:TextView
 private lateinit var btnHome  : ImageButton
 private lateinit var btnPerfil: ImageButton
 private lateinit var btnLogout: ImageButton
@@ -24,6 +27,9 @@ class PerfilActivity:AppCompatActivity() {
             insets
         }
         txtUsu = findViewById(R.id.tvUsuarioProf)
+        txtCorreo = findViewById(R.id.tvCorreoProf)
+        txtLog = findViewById(R.id.tvLogProf)
+        txtRol = findViewById(R.id.tvRolProf)
         btnHome = findViewById(R.id.btnHomeProf)
         btnPerfil = findViewById(R.id.btnPerfilProf)
         btnLogout = findViewById(R.id.btnLogoutProf)
@@ -36,7 +42,13 @@ class PerfilActivity:AppCompatActivity() {
         var info = intent.extras
         if (info != null && info.containsKey("name")) {
             var usuName = info.getString("name").toString()
+            var correo  = info.getString("correo").toString()
+            var log     = info.getString("log").toString()
+            var rol     = info.getString("rol").toString()
             txtUsu.setText(usuName)
+            txtCorreo.setText(correo)
+            txtLog.setText("Autentificado mediante " + log)
+            txtRol.setText("Rol asignado " + rol)
         }
 
     }

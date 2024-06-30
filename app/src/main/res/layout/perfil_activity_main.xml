@@ -122,31 +122,31 @@
                             android:textColor="#FFFFFF" />
 
                         <TextView
-                            android:id="@+id/tvNombreProf"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Lorem ipsum"
-                            android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/material_dynamic_neutral99" />
-
-                        <TextView
                             android:id="@+id/tvCorreoProf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Lorem ipsum"
+                            android:layout_marginTop="8dp"
+                            android:text="Correo"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/material_dynamic_neutral99" />
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/tvLogProf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Log"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tvRolProf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="Lorem ipsum"
+                            android:text="Rol"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/material_dynamic_neutral99" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
                 </LinearLayout>
