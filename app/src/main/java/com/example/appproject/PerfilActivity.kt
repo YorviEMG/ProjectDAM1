@@ -47,8 +47,8 @@ class PerfilActivity:AppCompatActivity() {
             var rol     = info.getString("rol").toString()
             txtUsu.setText(usuName)
             txtCorreo.setText(correo)
-            txtLog.setText(log)
-            txtRol.setText(rol)
+            txtLog.setText("Autentificado mediante " + log)
+            txtRol.setText("Rol asignado " + rol)
         }
 
     }
