@@ -13,6 +13,8 @@
     <string name="label_card2">Inscripción a torneo</string>
     <string name="label_card3">Torneos Disponibles</string>
     <string name="label_card4">Mis Torneos</string>
+    <string name="label_card5">Usuarios</string>
+    <string name="label_card6">Last</string>
 
     <string name="facebook_app_id">2192406544452885</string>
     <string name="fb_login_protocol_scheme">fb2192406544452885</string>
