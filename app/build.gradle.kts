@@ -49,8 +49,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.5.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
+
+    //
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+
+
     //github
     implementation("com.github.bumptech.glide:glide:4.11.0")
 
@@ -63,8 +69,8 @@ dependencies {
     implementation("com.facebook.android:facebook-android-sdk:latest.release")
     //implementation("com.facebook.android:facebook-android-sdk:[8,9)")
 
-    //google
 
+    //google
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:20.7.0")
 }

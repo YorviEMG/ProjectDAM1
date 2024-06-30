@@ -2,6 +2,7 @@ package com.example.appproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 
 private lateinit var btnPerfil: ImageButton
 private lateinit var btnLogout: ImageButton
+private lateinit var btnNuevo:Button
 private lateinit var auth: FirebaseAuth
 private lateinit var authGoogle: GoogleSignIn
 private val callbackManager = CallbackManager.Factory.create()
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)
+        btnNuevo = findViewById(R.id.btnNuevoInscripcion)
+        btnNuevo.setOnClickListener { nuevo() }
         btnPerfil.setOnClickListener{ goPerfil() }
         btnLogout.setOnClickListener{
             auth.signOut()
@@ -69,5 +73,9 @@ class MainActivity : AppCompatActivity() {
         }else{
             Toast.makeText(this, "No existe intent",Toast.LENGTH_SHORT)
         }
+    }
+    fun nuevo(){
+        var intent=Intent(this,ListadoInscripcionActivity::class.java)
+        startActivity(intent)
     }
 }
