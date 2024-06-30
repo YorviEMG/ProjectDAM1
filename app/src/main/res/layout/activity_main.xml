@@ -275,7 +275,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/label_card1"
+                                android:text="@string/label_card5"
                                 android:textAppearance="?attr/textAppearanceTitleMedium" />
                         </LinearLayout>
                     </LinearLayout>
@@ -310,7 +310,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/label_card1"
+                                android:text="@string/label_card6"
                                 android:textAppearance="?attr/textAppearanceTitleMedium" />
                         </LinearLayout>
                     </LinearLayout>

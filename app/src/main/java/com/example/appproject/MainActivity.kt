@@ -63,6 +63,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+        card5.setOnClickListener{
+
+        }
         initial()
     }
     fun initial(){

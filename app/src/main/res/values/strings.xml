@@ -14,6 +14,9 @@
     <string name="label_card2">Inscripción a torneo</string>
     <string name="label_card3">Torneos Disponibles</string>
     <string name="label_card4">Mis Torneos</string>
+
+    <string name="label_card01">Usuarios</string>
+    <string name="label_card02">Last</string>
     <string name="label_card5">Ingrese Nombre</string>
     <string name="label_card6">Ingrese Fecha Inicio</string>
     <string name="label_card7">Ingrese Fecha de Fin</string>

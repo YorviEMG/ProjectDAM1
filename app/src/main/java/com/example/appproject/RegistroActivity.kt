@@ -84,7 +84,6 @@ class RegistroActivity: AppCompatActivity() {
         } else {
             registro()
         }
-
     }
     fun goLogin(){
         var intent = Intent(this, LoginActivity::class.java)
