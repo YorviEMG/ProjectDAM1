@@ -26,6 +26,7 @@ import retrofit2.Response
 class ListaJuegoActivity : AppCompatActivity() {
     private lateinit var rvJuego:RecyclerView
     private lateinit var btnNuevo:Button
+    private lateinit var btnVolverMenu:Button
 
     //declarar atributo de la interfaza ApiServicesMedicamento
     private lateinit var apiJuego:ApiServicesJuego
@@ -42,10 +43,17 @@ class ListaJuegoActivity : AppCompatActivity() {
         }
         rvJuego=findViewById(R.id.rvJuego)
         btnNuevo=findViewById(R.id.btnNuevoJuego)
+        btnVolverMenu=findViewById(R.id.btnVolverJuegoLista)
+        btnVolverMenu.setOnClickListener { volverMenu() }
         btnNuevo.setOnClickListener { nuevo() }
         //instanciar el atributo apiMedicamento
         apiJuego=ApiUtils.getAPIServiceJuego()
         listar()
+    }
+
+    fun volverMenu(){
+        var intent=Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
     fun nuevo(){
         var intent=Intent(this,RegistrarJuegoActivity::class.java)

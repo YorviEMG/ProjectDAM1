@@ -22,6 +22,7 @@ private lateinit var txtEdad: TextInputEditText
 private lateinit var txtNacionalidad: TextInputEditText
 private lateinit var btnRegistrarJugador: Button
 private lateinit var btnVolverJugador: Button
+private lateinit var btnVolverJugadorLista:Button
 
 private lateinit var api: ApiServicesJugador
 
@@ -39,13 +40,21 @@ class RegistrarJugadorActivity : AppCompatActivity() {
         txtApellido = findViewById(R.id.txtRegistrarApellidoJugador)
         txtEdad = findViewById(R.id.txtRegistrarEdadJugador)
         txtNacionalidad = findViewById(R.id.txtRegistrarNacionalidadJugador)
+        btnVolverJugadorLista=findViewById(R.id.btnVolverRegistrarLista)
+
         btnRegistrarJugador = findViewById(R.id.btnRegistrarJugador)
         btnVolverJugador = findViewById(R.id.btnVolverJugador)
 
         api = ApiUtils.getAPIServiceJugador()
 
+        btnVolverJugadorLista.setOnClickListener{volverMenu()}
         btnRegistrarJugador.setOnClickListener { grabar() }
         btnVolverJugador.setOnClickListener { volver() }
+    }
+
+    fun volverMenu(){
+        var intent=Intent(this,ListaJugadorActivity::class.java)
+        startActivity(intent)
     }
 
     fun grabar() {

@@ -22,22 +22,32 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="600dp"
                 android:layout_marginTop="40dp"
                 android:orientation="vertical">
+
+                <Button
+                    android:layout_marginBottom="15dp"
+                    android:id="@+id/btnVolverJugadorLista"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:backgroundTint="@color/com_facebook_button_background_color_pressed"
+                    android:drawableEnd="@drawable/return_icon_154912" />
+                />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Registrar Jugador
+                    android:text="Registrar Juego
 "
                     android:textColor="@color/black"
                     android:textStyle="bold" />

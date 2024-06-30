@@ -24,6 +24,7 @@ private lateinit var txtDesarrollador: TextInputEditText
 private lateinit var txtIdCategoria: TextInputEditText
 private lateinit var btnRegistrarJuego: Button
 private lateinit var btnVolverJuego: Button
+private lateinit var btnVolverJugadorLista:Button
 
 private lateinit var api: ApiServicesJuego
 
@@ -43,13 +44,19 @@ class RegistrarJuegoActivity : AppCompatActivity() {
         txtIdCategoria = findViewById(R.id.txtRegistrarCategoriaJuego)
         btnRegistrarJuego = findViewById(R.id.btnRegistrarJuego)
         btnVolverJuego = findViewById(R.id.btnVolverJuego)
+        btnVolverJugadorLista = findViewById(R.id.btnVolverJugadorLista)
 
         api = ApiUtils.getAPIServiceJuego()
 
+        btnVolverJugadorLista.setOnClickListener{volverMenu()}
         btnRegistrarJuego.setOnClickListener { grabar() }
         btnVolverJuego.setOnClickListener { volver() }
     }
 
+    fun volverMenu(){
+        var intent=Intent(this,ListaJugadorActivity::class.java)
+        startActivity(intent)
+    }
     fun grabar() {
         // Leer controles
         val nom = txtNombre.text.toString()
