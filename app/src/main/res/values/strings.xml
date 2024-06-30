@@ -3,6 +3,15 @@
     <string name="log_det">BIEVENIDO A NUESTRO PORTAL DE VIDEOJUEGOS</string>
     <string name="log_name">GAME-ARENA</string>
     <string name="label_login_usu">Ingresar usario</string>
+    <string name="label_regis_jugador">Ingresar nombre</string>
+    <string name="label_regis_juego">Ingresar nombre del juego</string>
+    <string name="label_regis_plataforma">Ingresar plataforma</string>
+    <string name="label_regis_desarrollador">Ingresa el desarrollador</string>
+    <string name="label_regis_categoria">Ingresa la categoria</string>
+
+    <string name="label_regis_ape">Ingresar apellido</string>
+    <string name="label_regis_edad">Ingresar edad</string>
+    <string name="label_regis_nacio">Ingresar nacionalidad</string>
     <string name="label_login_cla">Ingresar contraseña</string>
     <string name="label_reg_usu">Ingresar nuevo usario</string>
     <string name="label_reg_cla">Ingresar contraseña</string>

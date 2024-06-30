@@ -54,6 +54,9 @@ dependencies {
     //github
     implementation("com.github.bumptech.glide:glide:4.11.0")
 
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-database-ktx")

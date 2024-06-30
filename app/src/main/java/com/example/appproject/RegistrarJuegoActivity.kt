@@ -1,0 +1,88 @@
+package com.example.appproject
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.appproject.entidad.Juego
+import com.example.appproject.entidad.Jugador
+import com.example.appproject.services.ApiServicesJuego
+import com.example.appproject.services.ApiServicesJugador
+import com.example.appproject.utils.ApiUtils
+import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+private lateinit var txtNombre: TextInputEditText
+private lateinit var txtPlataforma: TextInputEditText
+private lateinit var txtDesarrollador: TextInputEditText
+private lateinit var txtIdCategoria: TextInputEditText
+private lateinit var btnRegistrarJuego: Button
+private lateinit var btnVolverJuego: Button
+
+private lateinit var api: ApiServicesJuego
+
+class RegistrarJuegoActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.registro_juego_activity)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        txtNombre = findViewById(R.id.txtRegistrarNombreJuego)
+        txtPlataforma = findViewById(R.id.txtRegistrarPlataformaJuego)
+        txtDesarrollador = findViewById(R.id.txtRegistrarDesarrolladorJuego)
+        txtIdCategoria = findViewById(R.id.txtRegistrarCategoriaJuego)
+        btnRegistrarJuego = findViewById(R.id.btnRegistrarJuego)
+        btnVolverJuego = findViewById(R.id.btnVolverJuego)
+
+        api = ApiUtils.getAPIServiceJuego()
+
+        btnRegistrarJuego.setOnClickListener { grabar() }
+        btnVolverJuego.setOnClickListener { volver() }
+    }
+
+    fun grabar() {
+        // Leer controles
+        val nom = txtNombre.text.toString()
+        val plat = txtPlataforma.text.toString()
+        val des = txtDesarrollador.text.toString()
+        val cat = txtIdCategoria.text.toString().toInt()
+        val bean = Juego(0, nom, plat, des, cat)
+
+        // Invocar a la función save
+        api.save(bean).enqueue(object: Callback<Juego> {
+            override fun onResponse(call: Call<Juego>, response: Response<Juego>) {
+                if(response.isSuccessful){
+                    var obj=response.body()!!
+                    showAlert("Juego registrado con ID: "+obj.Id)
+                }
+            }
+            override fun onFailure(call: Call<Juego>, t: Throwable) {
+                showAlert(t.localizedMessage)
+            }
+        })
+    }
+
+    fun volver() {
+        val intent = Intent(this, RegistrarJuegoActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun showAlert(men: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("SISTEMA")
+        builder.setMessage(men)
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+}
