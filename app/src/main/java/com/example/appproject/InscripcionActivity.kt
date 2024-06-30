@@ -15,8 +15,6 @@ import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.util.*
 
 class InscripcionActivity : AppCompatActivity() {
     private lateinit var txtNombre: TextInputEditText
@@ -71,7 +69,7 @@ class InscripcionActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Inscripcion>, t: Throwable) {
-                showAlert("Error de red: " + t.localizedMessage)
+                //showAlert("Error de red: " + t.localizedMessage)
             }
         })
     }
