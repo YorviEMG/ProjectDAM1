@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.appproject.adaptador.JuegoComboAdapter
 import com.example.appproject.adaptador.JugadorComboAdapter
 import com.example.appproject.adaptador.TorneoComboAdapter
+import com.example.appproject.entidad.Estado
 import com.example.appproject.entidad.Inscripcion
 import com.example.appproject.entidad.Juego
 import com.example.appproject.entidad.Jugador
@@ -24,7 +25,6 @@ import com.example.appproject.service.ApiServiceRegistro
 import com.example.appproject.services.ApiServicesJuego
 import com.example.appproject.services.ApiServicesJugador
 import com.example.appproject.utils.ApiUtils
-import com.example.appproject.utils.AppConfig
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,6 +45,7 @@ class RegistroActivityMain:AppCompatActivity() {
     private lateinit var apiJug:ApiServicesJugador
     private lateinit var apiJue:ApiServicesJuego
     //combo
+    private lateinit var spnEstado:Spinner
     private lateinit var spnTorneo:Spinner
     private lateinit var spnJugador:Spinner
     private lateinit var spnJuego:Spinner
@@ -57,6 +58,7 @@ class RegistroActivityMain:AppCompatActivity() {
     private var idTorneo:Int = 0
     private var idJugador:Int = 0
     private var idJuego:Int = 0
+    private var idEstado:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +72,7 @@ class RegistroActivityMain:AppCompatActivity() {
         //txtTorneo=findViewById(R.id.txtRegistroTorneo)
         /*txtJugador=findViewById(R.id.txtRegistroJugador)
         txtJuego=findViewById(R.id.txtRegistroJuego)*/
-        txtEstado=findViewById(R.id.txtEstado)
+        //txtEstado=findViewById(R.id.txtEstado)
         btnGuardar=findViewById(R.id.btnGuardarRegistro)
         btnCancelar=findViewById(R.id.btnCancelarRegistro)
         btnVolver=findViewById(R.id.btnVolverRegistro)
@@ -86,10 +88,15 @@ class RegistroActivityMain:AppCompatActivity() {
         spnTorneo = findViewById(R.id.spnTorneo)
         spnJugador = findViewById(R.id.spnJugad)
         spnJuego = findViewById(R.id.spnJuego)
+        spnEstado = findViewById(R.id.spnEstado)
 
         torneos = mutableListOf()
         jugadores = mutableListOf()
         juegos = mutableListOf()
+        val itemsEstado = listOf(
+            Estado(1, "Activo"),
+            Estado(2, "Inactivo")
+        )
 
         torneoComboAdapter = TorneoComboAdapter(this, torneos)
         spnTorneo.adapter = torneoComboAdapter
@@ -99,6 +106,14 @@ class RegistroActivityMain:AppCompatActivity() {
 
         juegoComboAdapter = JuegoComboAdapter(this, juegos)
         spnJuego.adapter = juegoComboAdapter
+
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            itemsEstado
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spnEstado.adapter = adapter
 
         apiTor.findAll().enqueue(object :Callback<List<Inscripcion>>{
             override fun onResponse(call: Call<List<Inscripcion>>, response: Response<List<Inscripcion>>) {
@@ -153,11 +168,6 @@ class RegistroActivityMain:AppCompatActivity() {
                 val selectedItem = parent.getItemAtPosition(position) as Inscripcion
                 // Puedes usar selectedItem.id para obtener el ID
                 idTorneo = selectedItem.id
-                Toast.makeText(
-                    AppConfig.CONTEXT,
-                    "Selected ID: ${selectedItem.id}",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -174,10 +184,6 @@ class RegistroActivityMain:AppCompatActivity() {
                 val selectedItem = parent.getItemAtPosition(position) as Jugador
                 // Puedes usar selectedItem.id para obtener el ID
                 idJugador = selectedItem.id
-                Toast.makeText(AppConfig.CONTEXT,
-                    "Selected ID: ${selectedItem.id}",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -194,14 +200,20 @@ class RegistroActivityMain:AppCompatActivity() {
                 val selectedItem = parent.getItemAtPosition(position) as Juego
                 // Puedes usar selectedItem.id para obtener el ID
                 idJuego = selectedItem.id
-                Toast.makeText(AppConfig.CONTEXT,
-                    "Selected ID: ${selectedItem.id}",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // No hacer nada
+            }
+        }
+        spnEstado.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedStatus = parent.getItemAtPosition(position) as Estado
+                idEstado = selectedStatus.id
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Manejar el caso cuando no se selecciona nada
             }
         }
     }
@@ -217,15 +229,17 @@ class RegistroActivityMain:AppCompatActivity() {
         /*val to = txtTorneo.text.toString().toIntOrNull()?:0
         val ju = txtJugador.text.toString().toIntOrNull()?:0
         val jue = txtJuego.text.toString().toIntOrNull()?:0*/
-        val est = txtEstado.text.toString().toIntOrNull()?:0
+        //val est = txtEstado.text.toString().toIntOrNull()?:0
 
+
+        val bean = Registro( 0,idTorneo,"", idJugador,"", idJuego,"",idEstado, "")
         if (idTorneo == 0 || idJugador == 0 || idJuego == 0 || est == 0) {
             showAlert("Por favor complete todos los campos y seleccione valores válidos.")
             return
         }
 
+       
 
-        val bean = Registro( 0,idTorneo,"", idJugador,"", idJuego,"",est, "")
 
         apiReg.save(bean).enqueue(object :Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {
