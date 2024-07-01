@@ -2,6 +2,7 @@
     <string name="app_name">appProject</string>
     <string name="log_det">BIEVENIDO A NUESTRO PORTAL DE VIDEOJUEGOS</string>
     <string name="log_dete">BIEVENIDO A NUESTRO PORTAL DE INSCRIPCIÓN</string>
+    } <string name="log_detel">BIEVENIDO A NUESTRO PORTAL DE REGISTRO</string>
     <string name="log_name">GAME-ARENA</string>
     <string name="label_login_usu">Ingresar usario</string>
     <string name="label_regis_jugador">Ingresar nombre</string>
@@ -32,6 +33,10 @@
     <string name="label_card6">Ingrese Fecha Inicio</string>
     <string name="label_card7">Ingrese Fecha de Fin</string>
     <string name="label_card8">Ingrese la Categoria</string>
+    <string name="label_card9">Ingrese el Torneo</string>
+    <string name="label_card10">Ingrese el Jugador</string>
+    <string name="label_card11">Ingrese el Juego</string>
+    <string name="label_card12">Ingrese el Estado</string>
 
     <string name="facebook_app_id">2192406544452885</string>
     <string name="fb_login_protocol_scheme">fb2192406544452885</string>

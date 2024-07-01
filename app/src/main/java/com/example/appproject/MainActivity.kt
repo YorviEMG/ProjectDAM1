@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var txtJugador:TextView
     private lateinit var txtJuego:TextView
+    private lateinit var txtInscripcionTorneo:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -60,13 +61,13 @@ class MainActivity : AppCompatActivity() {
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)
 
+        txtInscripcionTorneo=findViewById(R.id.txtInscripcionTorneo)
         txtJugador=findViewById(R.id.txtJugador)
         txtJuego=findViewById(R.id.txtJuego)
         txtJuego.setOnClickListener{juego()}
         txtJugador.setOnClickListener{jugador()}
+        txtInscripcionTorneo.setOnClickListener { inscripcion() }
 
-        btnNuevo = findViewById(R.id.btnNuevoInscripcion)
-        btnNuevo.setOnClickListener { nuevo() }
 
         btnPerfil.setOnClickListener{ goPerfil() }
         btnLogout.setOnClickListener{
@@ -117,7 +118,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "No existe intent",Toast.LENGTH_SHORT)
         }
     }
-    fun nuevo(){
+    fun inscripcion(){
         var intent=Intent(this,ListadoInscripcionActivity::class.java)
         startActivity(intent)
     }
