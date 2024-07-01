@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         }
         auth = Firebase.auth
         card5 = findViewById(R.id.card5)
-        card6 = findViewById(R.id.card6)
         card5.setOnClickListener{ irUsuarios() }
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)

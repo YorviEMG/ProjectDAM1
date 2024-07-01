@@ -45,7 +45,7 @@ val CORREO   = "CORREO"
 
 //Roles
 val USER  = "USUARIO"
-val ADMIN = "ADMINISTRADOR"
+val ADMIN = "ADMIN"
 
 val OCULTO = "OCULTO"
 

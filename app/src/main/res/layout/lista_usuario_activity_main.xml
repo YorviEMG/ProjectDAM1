@@ -39,7 +39,7 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnHomeProf"
+                android:id="@+id/btnHomeUsu"
                 android:layout_width="10dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"

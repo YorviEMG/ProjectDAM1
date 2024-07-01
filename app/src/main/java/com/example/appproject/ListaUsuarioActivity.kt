@@ -1,6 +1,8 @@
 package com.example.appproject
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +23,7 @@ import com.google.firebase.database.ValueEventListener
 
 class ListaUsuarioActivity:AppCompatActivity() {
     private lateinit var BD: DatabaseReference
+    private lateinit var btnHome: ImageButton
     private lateinit var rvUsuario:RecyclerView
     private lateinit var usuarios: ArrayList<Usuario>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +36,15 @@ class ListaUsuarioActivity:AppCompatActivity() {
             insets
         }
         rvUsuario=findViewById(R.id.rvUsuarios)
+        btnHome=findViewById(R.id.btnHomeUsu)
+        btnHome.setOnClickListener{irHome()}
         usuarios=ArrayList<Usuario>()
         conectar()
         listar()
+    }
+    fun irHome(){
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
     fun listar(){
         BD.child("users").addValueEventListener(object:ValueEventListener{
