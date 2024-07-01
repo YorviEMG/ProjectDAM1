@@ -1,6 +1,7 @@
 package com.example.appproject.utils
 
 
+import com.example.appproject.service.ApiServiceCategoria
 import com.example.appproject.service.ApiServiceInscripcion
 import com.example.appproject.service.ApiServiceRegistro
 import com.example.appproject.services.ApiServicesJuego
@@ -23,6 +24,9 @@ class ApiUtils {
 
         fun getAPIServiceRegistro(): ApiServiceRegistro {
             return RetrofitClient2.getClient(BASE_URL).create(ApiServiceRegistro::class.java)
+        }
+        fun getAPIServiceCategoria(): ApiServiceCategoria {
+            return RetrofitClient2.getClient(BASE_URL).create(ApiServiceCategoria::class.java)
         }
     }
 }

@@ -11,7 +11,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.appproject.entidad.Registro
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -103,7 +102,7 @@ class MainActivity : AppCompatActivity() {
             log = info.getString("log").toString()
             rol = info.getString("rol").toString()
         }
-        if (rol == USER){
+        if (rol != ADMIN){
             card5.visibility = View.GONE
             card6.visibility = View.GONE
         }

@@ -200,8 +200,10 @@ class LoginActivity : AppCompatActivity(){
         if (currentUser != null){
             user = currentUser
             var intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("name", user.displayName.toString())
+            intent.putExtra("name", user.displayName)
+            intent.putExtra("correo", user.email)
             //intent.putExtra("correo", user.email.toString())
+
             startActivity(intent)
             finish()
         }
