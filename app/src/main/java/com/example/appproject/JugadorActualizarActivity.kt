@@ -3,7 +3,6 @@ package com.example.appproject
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -33,7 +32,7 @@ class JugadorActualizarActivity : AppCompatActivity() {
 
 
     //
-    private lateinit var api:ApiServicesJugador
+    private lateinit var api: ApiServicesJugador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

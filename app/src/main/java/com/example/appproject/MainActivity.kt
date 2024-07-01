@@ -14,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.appproject.entidad.Registro
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtJugador:TextView
     private lateinit var txtJuego:TextView
     private lateinit var txtInscripcionTorneo:TextView
+    private lateinit var txtRegistroTorneo:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -62,12 +64,13 @@ class MainActivity : AppCompatActivity() {
         btnLogout = findViewById(R.id.btnLogoutMain)
 
         txtInscripcionTorneo=findViewById(R.id.txtInscripcionTorneo)
+        txtRegistroTorneo=findViewById(R.id.txtRegistroTorneo)
         txtJugador=findViewById(R.id.txtJugador)
         txtJuego=findViewById(R.id.txtJuego)
         txtJuego.setOnClickListener{juego()}
         txtJugador.setOnClickListener{jugador()}
         txtInscripcionTorneo.setOnClickListener { inscripcion() }
-
+        txtRegistroTorneo.setOnClickListener { registro() }
 
         btnPerfil.setOnClickListener{ goPerfil() }
         btnLogout.setOnClickListener{
@@ -120,6 +123,10 @@ class MainActivity : AppCompatActivity() {
     }
     fun inscripcion(){
         var intent=Intent(this,ListadoInscripcionActivity::class.java)
+        startActivity(intent)
+    }
+    fun registro(){
+        var intent=Intent(this,ListaRegistroActivityMain::class.java)
         startActivity(intent)
     }
 }

@@ -26,7 +26,7 @@ class ListaJugadorActivity : AppCompatActivity() {
     private lateinit var btnVolverMenu:Button
 
     //declarar atributo de la interfaza ApiServicesMedicamento
-    private lateinit var apiJugador:ApiServicesJugador
+    private lateinit var apiJugador: ApiServicesJugador
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
