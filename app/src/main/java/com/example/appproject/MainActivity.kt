@@ -25,9 +25,11 @@ private lateinit var btnLogout: ImageButton
 
 
 private lateinit var btnNuevo:Button
-
+private lateinit var card1:MaterialCardView
+private lateinit var card2:MaterialCardView
+private lateinit var card3:MaterialCardView
+private lateinit var card4:MaterialCardView
 private lateinit var card5:MaterialCardView
-private lateinit var card6:MaterialCardView
 
 private lateinit var auth: FirebaseAuth
 private lateinit var authGoogle: GoogleSignIn
@@ -55,6 +57,10 @@ class MainActivity : AppCompatActivity() {
         }
         auth = Firebase.auth
         card5 = findViewById(R.id.card5)
+        card1 = findViewById(R.id.card1)
+        card2 = findViewById(R.id.card2)
+        card3 = findViewById(R.id.card3)
+        card4 = findViewById(R.id.card4)
         card5.setOnClickListener{ irUsuarios() }
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)
@@ -103,6 +109,9 @@ class MainActivity : AppCompatActivity() {
         }
         if (rol != ADMIN){
             card5.visibility = View.GONE
+            card2.visibility = View.GONE
+            card3.visibility = View.GONE
+            card4.visibility = View.GONE
         }
     }
     fun goPerfil(){
