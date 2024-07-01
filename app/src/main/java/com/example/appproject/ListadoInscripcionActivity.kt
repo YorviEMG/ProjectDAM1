@@ -25,6 +25,7 @@ import retrofit2.Response
 class ListadoInscripcionActivity:AppCompatActivity() {
     private lateinit var rvInscripcion:RecyclerView
     private lateinit var btnNuevo:Button
+    private lateinit var btnvolver:Button
     private lateinit var searchView: SearchView
     private lateinit var inscripcion: List<Inscripcion>
     private lateinit var adapter: InscripcionAdapter
@@ -42,9 +43,11 @@ class ListadoInscripcionActivity:AppCompatActivity() {
         }
         rvInscripcion=findViewById(R.id.rbInscripcion)
         btnNuevo=findViewById(R.id.btnNuevaInscripcion)
+        btnvolver=findViewById(R.id.btnVolverPrincipal)
         searchView=findViewById(R.id.searchView)
         apiIns=ApiUtils.getAPIServiceInscripcion()
         //
+        btnvolver.setOnClickListener { volver() }
         btnNuevo.setOnClickListener { nuevo() }
         listar()
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
@@ -59,6 +62,10 @@ class ListadoInscripcionActivity:AppCompatActivity() {
         })
     }
 
+    fun volver(){
+        var intent=Intent(this,MainActivity::class.java)
+        startActivity(intent)
+    }
     fun nuevo(){
         var intent= Intent(this, InscripcionActivity::class.java)
         startActivity(intent)
