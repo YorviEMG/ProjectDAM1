@@ -82,8 +82,24 @@
                     android:text="REGISTRO"
                     android:textStyle="bold" />
 
+                <Spinner
+                    android:id="@+id/spnTorneo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <Spinner
+                    android:id="@+id/spnJugad"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp" />
+
+                <Spinner
+                    android:id="@+id/spnJuego"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp" />
+                <!--<com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textField1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -144,7 +160,7 @@
                         android:textColorLink="#FFFFFF"
                         android:textSize="14sp" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textField4"
