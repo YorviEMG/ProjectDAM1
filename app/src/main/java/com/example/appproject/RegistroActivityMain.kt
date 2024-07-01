@@ -233,7 +233,7 @@ class RegistroActivityMain:AppCompatActivity() {
 
 
         val bean = Registro( 0,idTorneo,"", idJugador,"", idJuego,"",idEstado, "")
-        if (idTorneo == 0 || idJugador == 0 || idJuego == 0 || est == 0) {
+        if (idTorneo == 0 || idJugador == 0 || idJuego == 0 || idEstado == 0) {
             showAlert("Por favor complete todos los campos y seleccione valores válidos.")
             return
         }
