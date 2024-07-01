@@ -11,6 +11,6 @@ interface ApiServiceInscripcion {
     fun findAll(): Call<List<Inscripcion>>
 
     @POST("/api/Torneo")
-    fun save(@Body ins: Inscripcion): Call<Inscripcion>
+    fun save(@Body ins: Inscripcion): Call<String>
 
 }

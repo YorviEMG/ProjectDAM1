@@ -58,7 +58,7 @@ class InscripcionActivity : AppCompatActivity() {
         var cat= txtCategoria.text.toString().toIntOrNull() ?:0
         var bean = Inscripcion(0, nom, ini, fin, cat)
 
-        api.save(bean).enqueue(object : Callback<Inscripcion> {
+        /*api.save(bean).enqueue(object : Callback<Inscripcion> {
             override fun onResponse(call: Call<Inscripcion>, response: Response<Inscripcion>) {
                 if (response.isSuccessful) {
                     var obj = response.body()!!
@@ -70,6 +70,20 @@ class InscripcionActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<Inscripcion>, t: Throwable) {
                 //showAlert("Error de red: " + t.localizedMessage)
+            }
+        })*/
+        api.save(bean).enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.isSuccessful) {
+                    var obj = response.body()!!
+                    showAlert(obj)
+                }else{
+                    showAlert("Error al registrar: "+ response.message())
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                showAlert("Error de red: " + t.localizedMessage)
             }
         })
     }
