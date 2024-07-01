@@ -114,6 +114,22 @@ class RegistrarJuegoActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun grabar() {
+
+        if (txtNombre.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar el nombre", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+        if (txtPlataforma.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar la plataforma", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+        if (txtDesarrollador.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar el desarrollador", Toast.LENGTH_SHORT).show()
+            return
+
+        }
         // Leer controles
         val nom = txtNombre.text.toString()
         val plat = txtPlataforma.text.toString()

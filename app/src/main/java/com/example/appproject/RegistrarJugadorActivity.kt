@@ -3,6 +3,7 @@ package com.example.appproject
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -58,6 +59,31 @@ class RegistrarJugadorActivity : AppCompatActivity() {
     }
 
     fun grabar() {
+
+        if (txtNombre.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar el nombre", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+
+        if (txtApellido.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar el apellido", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+
+        if (txtEdad.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar la edad", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+
+        if (txtNacionalidad.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar la nacionalidad", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+
         // Leer controles
         val nom = txtNombre.text.toString()
         val ape = txtApellido.text.toString()

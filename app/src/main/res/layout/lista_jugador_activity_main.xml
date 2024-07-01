@@ -19,15 +19,15 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/com_facebook_button_background_color_pressed"
-            android:drawableEnd="@drawable/return_icon_154912" />
+            android:drawableEnd="@drawable/return_icon_154912"
+            android:backgroundTint="@color/buttonLogHard"/>
         />
 
         <Button
             android:id="@+id/btnNuevoJugador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3E80AE"
+            android:backgroundTint="@color/buttonLogHard"
             android:text="NUEVO JUGADOR" />
 
         <androidx.recyclerview.widget.RecyclerView
