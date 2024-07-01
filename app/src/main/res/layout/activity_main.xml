@@ -9,14 +9,14 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
@@ -54,6 +54,7 @@
                     android:src="@drawable/home"
                     android:tint="#FFFFFF"
                     android:visibility="gone" />
+
                 <ImageButton
                     android:id="@+id/btnPerfilMain"
                     android:layout_width="10dp"
@@ -97,6 +98,7 @@
 
                 <!-- CARD1 -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card1"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:checkable="true"
@@ -134,6 +136,7 @@
                 </com.google.android.material.card.MaterialCardView>
                 <!-- CARD2 -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
@@ -174,6 +177,7 @@
 
                 <!-- CARD3 -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
@@ -209,6 +213,7 @@
 
                 <!-- CARD4-->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card4"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
