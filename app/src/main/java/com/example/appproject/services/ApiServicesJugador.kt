@@ -18,7 +18,7 @@ interface ApiServicesJugador {
     @GET("/api/Jugador/{codigo}")
     fun findById(@Path("codigo") cod:Int): Call<Jugador>
     @PUT("/api/Jugador")
-    fun update(@Body med:Jugador): Call<Jugador>
+    fun update(@Body med:Jugador): Call<String>
     @DELETE("/api/Jugador/{codigo}")
     fun deleteById(@Path("codigo") cod:Int): Call<Void>
 }

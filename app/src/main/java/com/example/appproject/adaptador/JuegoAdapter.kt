@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appproject.JuegoActualizarActivity
+import com.example.appproject.JugadorActualizarActivity
 import com.example.appproject.R
 import com.example.appproject.entidad.Juego
 import com.example.appproject.utils.AppConfig
@@ -21,21 +22,20 @@ class JuegoAdapter(var lista:List<Juego>): RecyclerView.Adapter<ViewJuego>() {
     }
 
     override fun onBindViewHolder(holder: ViewJuego, position: Int) {
-        val juego = lista[position]
-        holder.tvCodigo.text = juego.Id.toString()
-        holder.tvNombre.text = juego.nombre ?: "N/A"
-        holder.tvPlataforma.text = juego.plataforma ?: "N/A"
-        holder.tvDesarrollador.text = juego.desarrollador ?: "N/A"
-        holder.tvIdCategoria.text = juego.IdCategoria.toString() // Convertir IdCategoria a String
+        holder.tvCodigo.setText(lista.get(position).id.toString())
+        holder.tvNombre.setText(lista.get(position).nombre)
+        holder.tvPlataforma.setText(lista.get(position).plataforma)
+        holder.tvDesarrollador.setText(lista.get(position).desarrollador)
+        holder.tvIdCategoria.setText(lista.get(position).idCategoria.toString())
 
-        // Obtener contexto
-        val contexto = holder.itemView.context
-        holder.itemView.setOnClickListener {
-            val intent = Intent(contexto, JuegoActualizarActivity::class.java)
-            // Asignar clave
-            intent.putExtra("codigo", juego.Id)
+        //obtener contexto
+        var CONTEXTO=holder.itemView.context
+        holder.itemView.setOnClickListener{
+            var intent=Intent(AppConfig.CONTEXT, JuegoActualizarActivity::class.java)
+            //asignar clave
+            intent.putExtra("codigo",lista.get(position).id)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            ContextCompat.startActivity(contexto, intent, null)
+            ContextCompat.startActivity(AppConfig.CONTEXT,intent,null)
         }
     }
 }

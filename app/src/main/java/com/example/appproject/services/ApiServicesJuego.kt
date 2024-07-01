@@ -20,7 +20,7 @@ interface ApiServicesJuego {
     @GET("/api/Juegos/{codigo}")
     fun findById(@Path("codigo") cod:Int): Call<Juego>
     @PUT("/api/Juegos")
-    fun update(@Body med:Juego): Call<Juego>
+    fun update(@Body med:Juego): Call<String>
     @DELETE("/api/Juegos/{codigo}")
     fun deleteById(@Path("codigo") cod:Int): Call<Void>
 }

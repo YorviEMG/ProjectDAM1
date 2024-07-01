@@ -53,7 +53,7 @@ class RegistrarJuegoActivity : AppCompatActivity() {
     }
 
     fun volverMenu(){
-        var intent=Intent(this,ListaJugadorActivity::class.java)
+        var intent=Intent(this,ListaJuegoActivity::class.java)
         startActivity(intent)
     }
     fun grabar() {

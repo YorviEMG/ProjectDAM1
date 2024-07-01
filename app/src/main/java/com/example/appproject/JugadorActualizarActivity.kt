@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.appproject.entidad.Juego
 import com.example.appproject.entidad.Jugador
 import com.example.appproject.services.ApiServicesJugador
 import com.example.appproject.utils.ApiUtils
@@ -28,6 +29,7 @@ class JugadorActualizarActivity : AppCompatActivity() {
     private lateinit var txtNacionalidad: TextInputEditText
     private lateinit var btnActualizarJugador: Button
     private lateinit var btnEliminarJugador: Button
+    private lateinit var btnVolverActualizarLista:Button
 
 
     //
@@ -49,12 +51,19 @@ class JugadorActualizarActivity : AppCompatActivity() {
         txtNacionalidad = findViewById(R.id.txtActualizarNacionalidadJugador)
         btnActualizarJugador = findViewById(R.id.btnActualizarJugador)
         btnEliminarJugador = findViewById(R.id.btnEliminarJugador)
+        btnVolverActualizarLista = findViewById(R.id.btnVolverActualizarLista)
         //
         api=ApiUtils.getAPIServiceJugador()
 
         btnActualizarJugador.setOnClickListener { grabar() }
+        btnVolverActualizarLista.setOnClickListener{volver()}
         btnEliminarJugador.setOnClickListener { eliminar() }
         datos()
+    }
+
+    fun volver(){
+        var intent=Intent(this,ListaJugadorActivity::class.java)
+        startActivity(intent)
     }
     fun eliminar(){
         var cod=txtCodigo.text.toString().toInt()
@@ -69,14 +78,14 @@ class JugadorActualizarActivity : AppCompatActivity() {
         var nac=txtNacionalidad.text.toString()
         var bean=Jugador(cod,nom,ape,edad,nac)
         //invocar a la función update
-        api.update(bean).enqueue(object:Callback<Jugador>{
-            override fun onResponse(call: Call<Jugador>, response: Response<Jugador>) {
+        api.update(bean).enqueue(object:Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
-                    showAlert("Medicamento Actualizado")
+                    showAlert("Jugador Actualizado")
                 }
             }
-            override fun onFailure(call: Call<Jugador>, t: Throwable) {
-              showAlert(t.localizedMessage)
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                showAlert(t.localizedMessage)
             }
         })
     }
@@ -123,7 +132,7 @@ class JugadorActualizarActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Jugador>, response: Response<Jugador>) {
                 if(response.isSuccessful){
                     var obj=response.body()!!
-                    txtCodigo.setText(obj.Id.toString())
+                    txtCodigo.setText(obj.id.toString())
                     txtNombre.setText(obj.nombre)
                     txtApellido.setText(obj.apellido)
                     txtEdad.setText(obj.edad)

@@ -1,5 +1,5 @@
 package com.example.appproject.entidad
 
-class Jugador(var Id:Int, var nombre:String,var apellido:String,var edad:String,var nacionalidad:String) {
+class Jugador(var id:Int, var nombre:String,var apellido:String,var edad:String,var nacionalidad:String) {
 
 }

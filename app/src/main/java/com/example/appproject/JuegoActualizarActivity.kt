@@ -30,6 +30,7 @@ class JuegoActualizarActivity : AppCompatActivity() {
     private lateinit var txtIdCategoria: TextInputEditText
     private lateinit var btnActualizarJuego: Button
     private lateinit var btnEliminarJuego: Button
+    private lateinit var btnVolverActualizarJugadorLista:Button
 
 
     //
@@ -51,12 +52,19 @@ class JuegoActualizarActivity : AppCompatActivity() {
         txtIdCategoria = findViewById(R.id.txtActualizarCategoriaJuego)
         btnActualizarJuego = findViewById(R.id.btnActualizarJuego)
         btnEliminarJuego = findViewById(R.id.btnEliminarJuego)
+        btnVolverActualizarJugadorLista = findViewById(R.id.btnVolverActualizarJugadorLista)
         //
         api=ApiUtils.getAPIServiceJuego()
 
+        btnVolverActualizarJugadorLista.setOnClickListener{volver()}
         btnActualizarJuego.setOnClickListener { grabar() }
         btnEliminarJuego.setOnClickListener { eliminar() }
         datos()
+    }
+
+    fun volver(){
+        var intent=Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
     fun eliminar(){
         var cod=txtCodigo.text.toString().toInt()
@@ -71,13 +79,13 @@ class JuegoActualizarActivity : AppCompatActivity() {
         var cat=txtIdCategoria.text.toString().toInt()
         var bean=Juego(cod,nom,plat,des,cat)
         //invocar a la función update
-        api.update(bean).enqueue(object:Callback<Juego>{
-            override fun onResponse(call: Call<Juego>, response: Response<Juego>) {
+        api.update(bean).enqueue(object:Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
-                    showAlert("Jugador Actualizado")
+                    showAlert("Juego Actualizado")
                 }
             }
-            override fun onFailure(call: Call<Juego>, t: Throwable) {
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 showAlert(t.localizedMessage)
             }
         })
@@ -125,11 +133,11 @@ class JuegoActualizarActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Juego>, response: Response<Juego>) {
                 if(response.isSuccessful){
                     var obj=response.body()!!
-                    txtCodigo.setText(obj.Id.toString())
+                    txtCodigo.setText(obj.id.toString())
                     txtNombre.setText(obj.nombre)
                     txtPlataforma.setText(obj.plataforma)
                     txtDesarrollador.setText(obj.desarrollador)
-                    txtIdCategoria.setText(obj.IdCategoria).toString()
+                    txtIdCategoria.setText(obj.idCategoria.toString())
 
                 }
             }

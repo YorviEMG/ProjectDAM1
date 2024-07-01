@@ -25,11 +25,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"/>
+            <Button
+                android:id="@+id/btnVolverActualizarJugadorLista"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/com_facebook_button_background_color_pressed"
+                android:drawableEnd="@drawable/return_icon_154912" />
+            />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView

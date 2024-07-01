@@ -21,7 +21,7 @@ class JugadorAdapter(var lista:List<Jugador>): RecyclerView.Adapter<ViewJugador>
         return lista.size
     }
     override fun onBindViewHolder(holder: ViewJugador, position: Int) {
-        holder.tvCodigo.setText(lista.get(position).Id.toString())
+        holder.tvCodigo.setText(lista.get(position).id.toString())
         holder.tvNombre.setText(lista.get(position).nombre)
         holder.tvApellido.setText(lista.get(position).apellido)
         holder.tvEdad.setText(lista.get(position).edad)
@@ -31,7 +31,7 @@ class JugadorAdapter(var lista:List<Jugador>): RecyclerView.Adapter<ViewJugador>
         holder.itemView.setOnClickListener{
             var intent=Intent(AppConfig.CONTEXT,JugadorActualizarActivity::class.java)
             //asignar clave
-            intent.putExtra("codigo",lista.get(position).Id)
+            intent.putExtra("codigo",lista.get(position).id)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             ContextCompat.startActivity(AppConfig.CONTEXT,intent,null)
         }
