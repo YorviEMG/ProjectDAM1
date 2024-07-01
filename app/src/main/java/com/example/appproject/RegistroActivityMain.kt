@@ -72,7 +72,7 @@ class RegistroActivityMain:AppCompatActivity() {
         //txtTorneo=findViewById(R.id.txtRegistroTorneo)
         /*txtJugador=findViewById(R.id.txtRegistroJugador)
         txtJuego=findViewById(R.id.txtRegistroJuego)*/
-        txtEstado=findViewById(R.id.txtEstado)
+        //txtEstado=findViewById(R.id.txtEstado)
         btnGuardar=findViewById(R.id.btnGuardarRegistro)
         btnCancelar=findViewById(R.id.btnCancelarRegistro)
         btnVolver=findViewById(R.id.btnVolverRegistro)
