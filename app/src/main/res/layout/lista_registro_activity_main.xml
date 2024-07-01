@@ -20,18 +20,18 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnNuevaInscripcion"
+                android:id="@+id/btnNuevoRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/buttonLogHard"
                 android:fontFamily="monospace"
-                android:text="Nueva Inscripción"
+                android:text="Nueva Registro"
                 android:textColor="@color/white" />
 
             <Button
-                android:id="@+id/btnVolverPrincipal"
+                android:id="@+id/btnVolverRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -82,20 +82,20 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="70dp"
                 android:fontFamily="monospace"
-                android:text="@string/log_dete"
+                android:text="@string/log_detel"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <SearchView
-                android:id="@+id/searchView"
+                android:id="@+id/searchView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:queryHint="Buscar Inscripción"
+                android:queryHint="Buscar Registro"
                 android:theme="@style/ThemeOverlay.MaterialComponents.Light" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rbInscripcion"
+                android:id="@+id/rbRegistro"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
