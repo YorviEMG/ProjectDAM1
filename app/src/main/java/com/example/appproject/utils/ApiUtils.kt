@@ -3,8 +3,8 @@ package com.example.appproject.utils
 
 import com.example.appproject.service.ApiServiceInscripcion
 import com.example.appproject.service.ApiServiceRegistro
-import com.example.appproject.service.ApiServicesJuego
-import com.example.appproject.service.ApiServicesJugador
+import com.example.appproject.services.ApiServicesJuego
+import com.example.appproject.services.ApiServicesJugador
 
 class ApiUtils {
     companion object {

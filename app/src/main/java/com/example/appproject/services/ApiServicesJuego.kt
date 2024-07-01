@@ -1,4 +1,4 @@
-package com.example.appproject.service
+package com.example.appproject.services
 
 import com.example.appproject.entidad.Juego
 import retrofit2.Call

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.appproject.entidad.Jugador
-import com.example.appproject.service.ApiServicesJugador
+import com.example.appproject.services.ApiServicesJugador
 import com.example.appproject.utils.ApiUtils
 
 import com.google.android.material.textfield.TextInputEditText

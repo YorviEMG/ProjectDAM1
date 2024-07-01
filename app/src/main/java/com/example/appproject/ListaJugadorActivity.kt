@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appproject.adaptador.JugadorAdapter
 import com.example.appproject.entidad.Jugador
-import com.example.appproject.service.ApiServicesJugador
+import com.example.appproject.services.ApiServicesJugador
 import com.example.appproject.utils.ApiUtils
 import com.example.appproject.utils.AppConfig
 
