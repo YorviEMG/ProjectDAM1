@@ -6,5 +6,6 @@
                       var nombre:String,
                       var fechaInicio: String,
                       var fechaFin:String,
-                      var IdCategoria:Int) {
+                      var nombreCategoria:String,
+                      var idCategoria:Int) {
     }

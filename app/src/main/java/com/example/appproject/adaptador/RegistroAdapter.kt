@@ -1,5 +1,6 @@
 package com.example.appproject.adaptador
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -31,7 +32,19 @@ class RegistroAdapter(var lista:List<Registro>): RecyclerView.Adapter<ViewRegist
         holder.tvId.text = lista[position].id.toString()
         holder.tvTorneo.text = lista[position].nombreTorneo
         holder.tvJugador.text = lista[position].nombreJugador
-        holder.tvJuego.text = lista[position].nombreJuego
-        holder.tvEstado.text = lista[position].nombreEstado
+        var CONTEXTO=holder.itemView.context
+        holder.itemView.setOnClickListener {
+
+            var detalle= AlertDialog.Builder(CONTEXTO)
+            detalle.setTitle("DETALLE DE REGISTRO")
+            detalle.setMessage("ID :"+lista.get(position).id + "\n"+
+                    "TORNEO :"+lista.get(position).nombreTorneo + "\n"+
+                    "JUGADOR :"+lista.get(position).nombreJugador + "\n"+
+                    "JUEGO :"+lista.get(position).nombreJuego + "\n"+
+                    "ESTADO :"+lista.get(position).nombreEstado)
+            detalle.setPositiveButton("Aceptar", null)
+            var dialogo: AlertDialog =detalle.create()
+            dialogo.show()
+        }
     }
 }
