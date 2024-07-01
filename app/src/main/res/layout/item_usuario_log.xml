@@ -11,49 +11,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/imgFotoAlumno"
-            android:layout_width="228dp"
-            android:layout_height="111dp"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvNomUsu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:text="USUARIO"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="CÓDIGO"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvCorreoUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CORREO"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvCodigoAlumno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+        <TextView
+            android:id="@+id/tvClaveUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLAVE"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="NOMBRE"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvLogUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOG"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvNombreAlumno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+        <TextView
+            android:id="@+id/tvRolUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROL"
+            android:textStyle="bold" />
 
         </LinearLayout>
-    </LinearLayout>
 </androidx.cardview.widget.CardView>
