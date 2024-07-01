@@ -119,7 +119,7 @@ class RegistrarJuegoActivity : AppCompatActivity() {
         val plat = txtPlataforma.text.toString()
         val des = txtDesarrollador.text.toString()
         //val cat = txtIdCategoria.text.toString().toInt()
-        val bean = Juego(0, nom, plat, des, idCate)
+        val bean = Juego(0, nom, plat, des, idCate, "")
 
         // Invocar a la función save
         api.save(bean).enqueue(object: Callback<String> {

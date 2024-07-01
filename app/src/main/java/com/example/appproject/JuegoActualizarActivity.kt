@@ -131,7 +131,7 @@ class JuegoActualizarActivity : AppCompatActivity() {
         var plat=txtPlataforma.text.toString()
         var des=txtDesarrollador.text.toString()
         //var cat=txtIdCategoria.text.toString().toInt()
-        var bean=Juego(cod,nom,plat,des,idCate)
+        var bean=Juego(cod,nom,plat,des,idCate, "")
         //invocar a la función update
         api.update(bean).enqueue(object:Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {

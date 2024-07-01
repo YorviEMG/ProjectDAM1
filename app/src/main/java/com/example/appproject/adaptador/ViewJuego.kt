@@ -11,7 +11,7 @@ class ViewJuego(item:View): RecyclerView.ViewHolder(item) {
     var tvNombre:TextView
     var tvPlataforma:TextView
     var tvDesarrollador:TextView
-    var tvIdCategoria:TextView
+    var tvNombreCategoria:TextView
 
 
 
@@ -21,7 +21,7 @@ class ViewJuego(item:View): RecyclerView.ViewHolder(item) {
         tvNombre=item.findViewById(R.id.tvNombreJuego)
         tvPlataforma=item.findViewById(R.id.tvPlataformaJuego)
         tvDesarrollador=item.findViewById(R.id.tvDesarrolladorJuego)
-        tvIdCategoria=item.findViewById(R.id.tvIdCategoriaJuego)
+        tvNombreCategoria=item.findViewById(R.id.tvNombreCategoriaJuego)
 
     }
 }
