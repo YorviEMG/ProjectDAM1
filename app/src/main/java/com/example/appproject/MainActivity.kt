@@ -2,11 +2,8 @@ package com.example.appproject
 
 import android.content.Intent
 import android.os.Bundle
-
-import android.widget.Button
-
 import android.view.View
-
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -58,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         card5 = findViewById(R.id.card5)
         card6 = findViewById(R.id.card6)
+        card5.setOnClickListener{ irUsuarios() }
         btnPerfil = findViewById(R.id.btnPerfilMain)
         btnLogout = findViewById(R.id.btnLogoutMain)
 
@@ -78,14 +76,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        card5.setOnClickListener{
-
-        }
         initial()
     }
 
     fun juego(){
         var intent=Intent(this,ListaJuegoActivity::class.java)
+        startActivity(intent)
+    }
+    fun irUsuarios(){
+        var intent=Intent(this,ListaUsuarioActivity::class.java)
         startActivity(intent)
     }
 
