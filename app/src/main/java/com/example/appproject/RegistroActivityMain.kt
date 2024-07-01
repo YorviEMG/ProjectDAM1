@@ -231,7 +231,15 @@ class RegistroActivityMain:AppCompatActivity() {
         val jue = txtJuego.text.toString().toIntOrNull()?:0*/
         //val est = txtEstado.text.toString().toIntOrNull()?:0
 
+
         val bean = Registro( 0,idTorneo,"", idJugador,"", idJuego,"",idEstado, "")
+        if (idTorneo == 0 || idJugador == 0 || idJuego == 0 || est == 0) {
+            showAlert("Por favor complete todos los campos y seleccione valores válidos.")
+            return
+        }
+
+       
+
 
         apiReg.save(bean).enqueue(object :Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {

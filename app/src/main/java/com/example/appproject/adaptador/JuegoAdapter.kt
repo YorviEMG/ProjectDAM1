@@ -26,7 +26,7 @@ class JuegoAdapter(var lista:List<Juego>): RecyclerView.Adapter<ViewJuego>() {
         holder.tvNombre.setText(lista.get(position).nombre)
         holder.tvPlataforma.setText(lista.get(position).plataforma)
         holder.tvDesarrollador.setText(lista.get(position).desarrollador)
-        holder.tvIdCategoria.setText(lista.get(position).idCategoria.toString())
+        holder.tvNombreCategoria.setText(lista.get(position).nombreCategoria)
 
         //obtener contexto
         var CONTEXTO=holder.itemView.context

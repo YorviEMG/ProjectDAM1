@@ -77,11 +77,11 @@
                 android:id="@+id/textView12233"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="idCATEGORIA"
+                android:text="CATEGORIA"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvIdCategoriaJuego"
+                android:id="@+id/tvNombreCategoriaJuego"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />

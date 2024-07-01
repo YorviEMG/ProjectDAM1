@@ -3,6 +3,7 @@ package com.example.appproject
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,9 @@ class ListaRegistroActivityMain:AppCompatActivity() {
     private lateinit var rvRegistro:RecyclerView
     private lateinit var btnNuevo:Button
     private lateinit var btnVolver:Button
+    private lateinit var searchView: SearchView
+    private lateinit var registros: List<Registro>
+    private lateinit var adapter:RegistroAdapter
     //
     private lateinit var apiRegistro:ApiServiceRegistro
 
@@ -38,11 +42,23 @@ class ListaRegistroActivityMain:AppCompatActivity() {
         rvRegistro=findViewById(R.id.rvRegistro)
         btnNuevo=findViewById(R.id.btnNuevoRegistro)
         btnVolver=findViewById(R.id.btnVolverRegistro)
+        searchView=findViewById(R.id.searchView1)
         apiRegistro=ApiUtils.getAPIServiceRegistro()
         //
         btnNuevo.setOnClickListener { nuevo() }
         btnVolver.setOnClickListener { volver() }
         listar()
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter(newText)
+                return true
+            }
+        })
     }
     fun volver(){
         var intent= Intent(this,MainActivity::class.java)
@@ -54,12 +70,11 @@ class ListaRegistroActivityMain:AppCompatActivity() {
     }
     fun listar(){
         apiRegistro.findAll().enqueue(object :Callback<List<Registro>>{
-            override fun onResponse(
-                call: Call<List<Registro>>,response: Response<List<Registro>>) {
+            override fun onResponse(call: Call<List<Registro>>,response: Response<List<Registro>>) {
                 if (response.isSuccessful){
-                    var data= response.body()!!
-                    var adaptador= RegistroAdapter(data)
-                    rvRegistro.adapter=adaptador
+                   registros= response.body()!!
+                    adapter= RegistroAdapter(registros)
+                    rvRegistro.adapter=adapter
                     rvRegistro.layoutManager=LinearLayoutManager(AppConfig.CONTEXT)
                 }
             }

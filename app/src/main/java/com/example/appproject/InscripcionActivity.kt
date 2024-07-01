@@ -111,6 +111,12 @@ class InscripcionActivity : AppCompatActivity() {
         var ini = txtFechaIn.text.toString()
         var fin = txtFechaFin.text.toString()
         //var cat= txtCategoria.text.toString().toIntOrNull() ?:0
+
+        if (nom.isEmpty() || ini.isEmpty() || fin.isEmpty() || idCate == 0) {
+            showAlert("Por favor complete todos los campos y seleccione una categoría.")
+            return
+        }
+
         var bean = Inscripcion(0, nom, ini, fin,"", idCate)
 
         /*api.save(bean).enqueue(object : Callback<Inscripcion> {

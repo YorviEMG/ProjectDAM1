@@ -2,6 +2,7 @@ package com.example.appproject.adaptador
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.icu.text.Transliterator.Position
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -13,6 +14,9 @@ import com.example.appproject.entidad.Registro
 import com.example.appproject.utils.AppConfig
 
 class RegistroAdapter(var lista:List<Registro>): RecyclerView.Adapter<ViewRegistro>() {
+
+    private var filterLista:MutableList<Registro> =lista.toMutableList()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewRegistro {
         var vista= LayoutInflater.from(parent.context).
         inflate(R.layout.item_registro,parent,false)
@@ -29,9 +33,12 @@ class RegistroAdapter(var lista:List<Registro>): RecyclerView.Adapter<ViewRegist
        //holder.tvEstado.setText(lista.get(position).estadoId.toString())
         //obtener contexto
         //var CONTEXTO=holder.itemView.context
-        holder.tvId.text = lista[position].id.toString()
-        holder.tvTorneo.text = lista[position].nombreTorneo
-        holder.tvJugador.text = lista[position].nombreJugador
+        if (position<filterLista.size){
+            val registros=filterLista[position]
+            holder.tvId.text = registros.id.toString()
+            holder.tvTorneo.text = registros.nombreTorneo
+            holder.tvJugador.text = registros.nombreJugador
+        }
         var CONTEXTO=holder.itemView.context
         holder.itemView.setOnClickListener {
 
@@ -46,5 +53,16 @@ class RegistroAdapter(var lista:List<Registro>): RecyclerView.Adapter<ViewRegist
             var dialogo: AlertDialog =detalle.create()
             dialogo.show()
         }
+    }
+
+    fun filter(text: String?) {
+        if (text.isNullOrEmpty()) {
+            filterLista = lista.toMutableList()
+        } else {
+            filterLista = lista.filter {
+                it.nombreTorneo .contains(text, ignoreCase = true)
+            }.toMutableList()
+        }
+        notifyDataSetChanged()
     }
 }

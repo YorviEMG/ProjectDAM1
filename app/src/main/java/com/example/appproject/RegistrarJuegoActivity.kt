@@ -114,12 +114,28 @@ class RegistrarJuegoActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun grabar() {
+
+        if (txtNombre.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar el nombre", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+        if (txtPlataforma.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar la plataforma", Toast.LENGTH_SHORT).show()
+            return
+
+        }
+        if (txtDesarrollador.text.toString().isEmpty()){
+            Toast.makeText(this, "Debes ingresar el desarrollador", Toast.LENGTH_SHORT).show()
+            return
+
+        }
         // Leer controles
         val nom = txtNombre.text.toString()
         val plat = txtPlataforma.text.toString()
         val des = txtDesarrollador.text.toString()
         //val cat = txtIdCategoria.text.toString().toInt()
-        val bean = Juego(0, nom, plat, des, idCate)
+        val bean = Juego(0, nom, plat, des, idCate, "")
 
         // Invocar a la función save
         api.save(bean).enqueue(object: Callback<String> {

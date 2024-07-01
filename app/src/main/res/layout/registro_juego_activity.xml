@@ -38,8 +38,8 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:backgroundTint="@color/com_facebook_button_background_color_pressed"
-                    android:drawableEnd="@drawable/return_icon_154912" />
+                    android:drawableEnd="@drawable/return_icon_154912"
+                    android:backgroundTint="@color/buttonLogHard"/>
                 />
 
                 <TextView
