@@ -103,7 +103,6 @@ class MainActivity : AppCompatActivity() {
         }
         if (rol != ADMIN){
             card5.visibility = View.GONE
-            card6.visibility = View.GONE
         }
     }
     fun goPerfil(){
