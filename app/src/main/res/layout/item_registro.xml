@@ -58,32 +58,6 @@
                 android:layout_height="wrap_content"
                 android:text="" />
 
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Juego"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvJuego"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estado"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/tvEstado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-
 
         </LinearLayout>
     </LinearLayout>

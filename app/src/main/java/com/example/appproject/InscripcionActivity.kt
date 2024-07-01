@@ -56,7 +56,7 @@ class InscripcionActivity : AppCompatActivity() {
         var ini = txtFechaIn.text.toString()
         var fin = txtFechaFin.text.toString()
         var cat= txtCategoria.text.toString().toIntOrNull() ?:0
-        var bean = Inscripcion(0, nom, ini, fin, cat)
+        var bean = Inscripcion(0, nom, ini, fin,"",cat)
 
         /*api.save(bean).enqueue(object : Callback<Inscripcion> {
             override fun onResponse(call: Call<Inscripcion>, response: Response<Inscripcion>) {

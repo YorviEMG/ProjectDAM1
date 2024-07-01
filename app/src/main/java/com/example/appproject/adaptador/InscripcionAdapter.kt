@@ -1,5 +1,6 @@
 package com.example.appproject.adaptador
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,19 @@ class InscripcionAdapter(var lista:List<Inscripcion>): RecyclerView.Adapter<View
         //holder.tvNombre.text = (lista.get(position).nombre)
         //obtener contexto
         var CONTEXTO=holder.itemView.context
+        holder.itemView.setOnClickListener {
+
+            var detalle= AlertDialog.Builder(CONTEXTO)
+            detalle.setTitle("DETALLE DE TORNEO")
+            detalle.setMessage("ID :"+lista.get(position).id + "\n"+
+                    "NOMBRE :"+lista.get(position).nombre + "\n"+
+                    "FECHA INICIO :"+lista.get(position).fechaInicio + "\n"+
+                    "FECHA FIN :"+lista.get(position).fechaFin + "\n"+
+                    "CATEGORIA :"+lista.get(position).nombreCategoria)
+            detalle.setPositiveButton("Aceptar", null)
+            var dialogo: AlertDialog=detalle.create()
+            dialogo.show()
+        }
     }
     fun filter(text: String?) {
         if (text.isNullOrEmpty()) {
