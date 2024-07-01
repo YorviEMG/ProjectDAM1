@@ -66,7 +66,7 @@ class RegistrarJugadorActivity : AppCompatActivity() {
         val bean = Jugador( 0,nom, ape, edad, nac)
 
         // Invocar a la función save
-        api.save(bean).enqueue(object: Callback<Jugador>{
+        /*api.save(bean).enqueue(object: Callback<Jugador>{
             override fun onResponse(call: Call<Jugador>, response: Response<Jugador>) {
                 if(response.isSuccessful){
                     var obj=response.body()!!
@@ -74,6 +74,17 @@ class RegistrarJugadorActivity : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<Jugador>, t: Throwable) {
+                showAlert(t.localizedMessage)
+            }
+        })*/
+        api.save(bean).enqueue(object: Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if(response.isSuccessful){
+                    var obj=response.body()!!
+                    showAlert(obj)
+                }
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 showAlert(t.localizedMessage)
             }
         })

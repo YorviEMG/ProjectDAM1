@@ -13,8 +13,10 @@ interface ApiServicesJuego {
     //endpoint para listar medicamentos
     @GET("/api/Juegos")
     fun findAll(): Call<List<Juego>>
+    /*@POST("/api/Juegos")
+    fun save(@Body med:Juego): Call<Juego>*/
     @POST("/api/Juegos")
-    fun save(@Body med:Juego): Call<Juego>
+    fun save(@Body med:Juego): Call<String>
     @GET("/api/Juegos/{codigo}")
     fun findById(@Path("codigo") cod:Int): Call<Juego>
     @PUT("/api/Juegos")

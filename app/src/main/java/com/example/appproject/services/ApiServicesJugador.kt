@@ -14,7 +14,7 @@ interface ApiServicesJugador {
     @GET("/api/Jugador")
     fun findAll(): Call<List<Jugador>>
     @POST("/api/Jugador")
-    fun save(@Body med:Jugador): Call<Jugador>
+    fun save(@Body med:Jugador): Call<String>
     @GET("/api/Jugador/{codigo}")
     fun findById(@Path("codigo") cod:Int): Call<Jugador>
     @PUT("/api/Jugador")

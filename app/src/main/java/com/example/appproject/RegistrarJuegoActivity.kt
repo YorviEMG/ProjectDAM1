@@ -2,6 +2,7 @@ package com.example.appproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -9,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.appproject.entidad.Juego
-import com.example.appproject.entidad.Jugador
 import com.example.appproject.services.ApiServicesJuego
-import com.example.appproject.services.ApiServicesJugador
 import com.example.appproject.utils.ApiUtils
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -66,14 +65,27 @@ class RegistrarJuegoActivity : AppCompatActivity() {
         val bean = Juego(0, nom, plat, des, cat)
 
         // Invocar a la función save
-        api.save(bean).enqueue(object: Callback<Juego> {
-            override fun onResponse(call: Call<Juego>, response: Response<Juego>) {
+        api.save(bean).enqueue(object: Callback<String> {
+            /*override fun onResponse(call: Call<String>, response: Response<Juego>) {
                 if(response.isSuccessful){
                     var obj=response.body()!!
                     showAlert("Juego registrado con ID: "+obj.Id)
                 }
             }
             override fun onFailure(call: Call<Juego>, t: Throwable) {
+                showAlert(t.localizedMessage)
+            }*/
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if(response.isSuccessful){
+
+                    var obj1 = response.body()!!
+                    //showAlert("Respuesta del servidor: $obj1")
+                    showAlert(obj1)
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.e("MiClase", "Error de red: ${t.localizedMessage}")
                 showAlert(t.localizedMessage)
             }
         })

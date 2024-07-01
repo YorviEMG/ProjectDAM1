@@ -1,10 +1,9 @@
 package com.example.appproject.utils
 
-import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
+
 
 /*
 class RetrofitClient {
@@ -25,7 +24,7 @@ class RetrofitClient {
 
 
 class RetrofitClient2 {
-    companion object {
+    /*companion object {
         fun getClient(URL: String): Retrofit {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
@@ -43,6 +42,16 @@ class RetrofitClient2 {
                 .client(httpClient.build())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
+        }*/
+
+        companion object {
+            fun getClient(URL:String):Retrofit {
+                val retrofit = Retrofit.Builder()
+                    .baseUrl(URL)
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                return retrofit
         }
     }
 }
